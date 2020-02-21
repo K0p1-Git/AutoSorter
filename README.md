@@ -2,7 +2,7 @@
 <p align=left>
 <a target="_blank" href="https://github.com/K0p1-Git/autoSorter/"><img alt="docker image" src="https://img.shields.io/badge/Version-_1.0.0-blue.svg"></a>
 <a target="_blank" href="https://www.python.org/downloads/" title="Python version"><img src="https://img.shields.io/badge/python-%3E=_3.0-green.svg"></a>
-<a target="_blank" href="https://twitter.com/intent/tweet?text=Improve%20produtivity%20with%20Auto%20Sorter%20%26url%3Dhttps%3A%2F%2Fgithub.com%2FK0p1-Git%2FautoSorter%2F%26hashtags%3DProductivity%2C%20%20AutoSorter%2C%20Python" title="Share on Tweeter"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"></a>
+<a target="_blank" href="https://twitter.com/intent/tweet?text=Improve%20produtivity%20with%20Auto%20Sorter%20%26url%3Dhttps%3A%2F%2Fgithub.com%2FK0p1-Git%2FautoSorter%2F%26hashtags%3Dproductivity%2C%20%20AutoSorter%2C%20Python" title="Share on Tweeter"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"></a>
 </p>
 
 Auto Sorter is a Python script used to increase productivity. As the name implies automatically help the user to sort out files from __~/Downloads__ directory to a specified directory mapped via file extension. 
