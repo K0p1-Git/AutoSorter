@@ -20,7 +20,7 @@ __Note: This is a work in progress, things are subjected to change. More in dept
 [Python 3.6 or above ](https://www.python.org/download/releases/3.0/) is required to run the script.
 
 ```bash
-sudo apt install python3
+$ sudo apt install python3
 ```
 
 ## Usage
@@ -31,9 +31,6 @@ $ git clone https://github.com/K0p1-Git/AutoSorter.git
 
 # change the working directory to Auto Sorter
 $ cd AutoSorter
-
-# install python3 if it is not installed
-$ apt install python3
 
 # chmod +x if required
 $ chmod +x autoSorter.py
