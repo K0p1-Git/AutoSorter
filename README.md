@@ -1,7 +1,7 @@
 # Auto Sorter v1.1.0
 <p align=left>
 <a target="_blank" href="https://github.com/K0p1-Git/autoSorter/"><img alt="docker image" src="https://img.shields.io/badge/Version-_1.1.0-blue.svg"></a>
-<a target="_blank" href="https://www.python.org/downloads/" title="Python version"><img src="https://img.shields.io/badge/python-%3E=_3.0-green.svg"></a>
+<a target="_blank" href="https://www.python.org/downloads/" title="Python version"><img src="https://img.shields.io/badge/python-%3E=_3.6-green.svg"></a>
 <a target="_blank" href="https://github.com/K0p1-Git/AutoSorter/LICENSE.md" title="License"><img alt="GitHub" src="https://img.shields.io/github/license/K0p1-Git/AutoSorter?color=black"></a>
 <a target="_blank" href="https://twitter.com/intent/tweet?text=Improve%20Productivity%20with%20Auto%20Sorter%20&url=https://github.com/K0p1-Git/autoSorter/&&hashtags=Productivity,%20Python,%20Script" title="Share on Tweeter"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"></a>
 </p>
@@ -17,7 +17,7 @@ __Note: This is a work in progress, things are subjected to change. More in dept
 
 ## Prerequisite 
 
-[Python 3 ](https://www.python.org/download/releases/3.0/) is required to run the script.
+[Python 3.6 or above ](https://www.python.org/download/releases/3.0/) is required to run the script.
 
 ```bash
 sudo apt install python3
@@ -26,8 +26,17 @@ sudo apt install python3
 ## Usage
 
 ```bash
-chmod + x autoSorter.py
-./autoSorter.py
+# clone the repo
+$ git clone https://github.com/K0p1-Git/AutoSorter.git
+
+# change the working directory to Auto Sorter
+$ cd AutoSorter
+
+# install python3 if it is not installed
+$ apt install python3
+
+# chmod +x if required
+$ chmod +x autoSorter.py
 ```
 
 ## Contributing
