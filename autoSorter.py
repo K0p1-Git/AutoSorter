@@ -5,11 +5,12 @@ from signal import signal, SIGINT
 from sys import exit
 
 ## Directories are delclared here
-TARGET  = '/root/Downloads/' 
+USER = os.environ.get('USERNAME')
+TARGET  = f'/{USER}/Downloads/' 
 DIRS    = {
-    'PICTURES'  :'/root/Pictures',
-    'DOCUMENTS' :'/root/Documents',
-    'VIDEOS'    :'/root/Videos'
+    'PICTURES'  :f'/{USER}/Pictures',
+    'DOCUMENTS' :f'/{USER}/Documents',
+    'VIDEOS'    :f'/{USER}/Videos'
 }
 ## Extensions are declared here or be loaded via text file. 
 EXT = {
@@ -36,12 +37,14 @@ def initialize():
         if not EXIST:
             print('\nError\t:\tPlease ensure that specified directories exists.')
             exit(-1)
+    print('\nDirectories loaded ...')
 
 ## The checkExist() function is used to poll the target directory for new files being added.
 ## Once a file has been detected, it will move it to the pre-defined directories.
 
 def checkExist():
     before = []
+    print(f'\n¯\(◉‿◉)/¯ Watching {TARGET} for change ¯\(◉‿◉)/¯')
     while True:
         time.sleep(TIME)
         after = dict ([(f, None) for f in os.listdir (TARGET)])
@@ -68,11 +71,25 @@ def signalHandler(sig, frame):
     print('\nAuto Sorter script terminated. Farewell!')
     exit(0)
 
+def welcome():
+    print('''
+                _           _____            _            
+     /\        | |         / ____|          | |           
+    /  \  _   _| |_ ___   | (___   ___  _ __| |_ ___ _ __ 
+   / /\ \| | | | __/ _ \   \___ \ / _ \| '__| __/ _ \ '__|
+  / ____ \ |_| | || (_) |  ____) | (_) | |  | ||  __/ |   
+ /_/    \_\__,_|\__\___/  |_____/ \___/|_|   \__\___|_|   
+                                                          
+    Version 1.1.0 -  Twitter @ K0p1_
+
+            ''')
+
 ## Main function starts here
 
 def main():
     signal(SIGINT, signalHandler)
-    print(EXT)
+    welcome()
+    #print(EXT)  DEBUG
     initialize()
     checkExist()
 
