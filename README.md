@@ -16,7 +16,7 @@
   
      Version 1.1.0 -  Twitter @ K0p1_
 ```                                                          
-Auto Sorter is a automatic file sorter, based on file extensions, it moves file to where they belong.
+Auto Sorter is a automatic file sorter, relocate files to where they rightfully belong, based on file extensions.
 - Customiable storage location
 - <a href='https://github.com/K0p1-Git/AutoSorter/blob/master/extensions.txt'>Customizable extensions mapping</a>
 - Adjustable Polling Rate
