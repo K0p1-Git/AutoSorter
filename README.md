@@ -1,4 +1,4 @@
-# Auto Sorter v1.1.0
+# Auto Sorter v1.2.0
 <p align=left>
 <a target="_blank" href="https://github.com/K0p1-Git/autoSorter/"><img alt="docker image" src="https://img.shields.io/badge/Version-_1.2.0-blue.svg"></a>
 <a target="_blank" href="https://www.python.org/downloads/" title="Python version"><img src="https://img.shields.io/badge/python-%3E=_3.6-green.svg"></a>
