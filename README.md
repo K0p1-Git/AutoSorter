@@ -14,7 +14,7 @@
  / ____ \ |_| | || (_) |  ____) | (_) | |  | ||  __/ |   
 /_/    \_\__,_|\__\___/  |_____/ \___/|_|   \__\___|_|   
   
-     Version 1.1.0 -  Twitter @ K0p1_
+     Version 1.1.0  -  Twitter @ K0p1_
 ```                                                          
 Auto Sorter is a automatic file sorter, relocate files to where they rightfully belong, based on file extensions.
 - Customiable storage location
@@ -49,6 +49,13 @@ $ cd AutoSorter
 # chmod +x if required
 $ chmod +x autoSorter.py
 ```
+## To-Do(s)
+- Add control flag to make importing extensions file easier
+- Add control flag to make it possible to import directories
+- Add --help -h flag for simple how-to messages
+- Add control flag to make it possible to initialize polling rate
+- Change extension/directories file type to JSON format
+- Make settings persistent throughout lifetime
 
 ## Contributing
 Currently not open for contribution.
