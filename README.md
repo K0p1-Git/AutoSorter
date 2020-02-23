@@ -1,6 +1,6 @@
 # Auto Sorter v1.1.0
 <p align=left>
-<a target="_blank" href="https://github.com/K0p1-Git/autoSorter/"><img alt="docker image" src="https://img.shields.io/badge/Version-_1.1.0-blue.svg"></a>
+<a target="_blank" href="https://github.com/K0p1-Git/autoSorter/"><img alt="docker image" src="https://img.shields.io/badge/Version-_1.2.0-blue.svg"></a>
 <a target="_blank" href="https://www.python.org/downloads/" title="Python version"><img src="https://img.shields.io/badge/python-%3E=_3.6-green.svg"></a>
 <a target="_blank" href="https://github.com/K0p1-Git/AutoSorter/blob/master/LICENSE.md" title="License"><img alt="GitHub" src="https://img.shields.io/github/license/K0p1-Git/AutoSorter?color=black"></a>
 <a target="_blank" href="https://twitter.com/intent/tweet?text=Improve%20Productivity%20with%20Auto%20Sorter%20&url=https://github.com/K0p1-Git/autoSorter/&&hashtags=Productivity,%20Python,%20Script" title="Share on Tweeter"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"></a>
@@ -23,6 +23,9 @@ Auto Sorter is a automatic file sorter, relocate files to where they rightfully 
 - Easy run and forget quality of life script 
 
 __Note: This is a work in progress, everything is subjected to change. More in-depth tutorial coming soon!__
+
+## Change Log v 1.2.0
+- Improved cross-platform compatibility 
 
 ## Change Log v 1.1.0
 - Change the way it detects user's home directory
@@ -56,9 +59,12 @@ $ chmod +x autoSorter.py
 - Add control flag to make it possible to initialize polling rate
 - Change extension/directories file type to JSON format
 - Make settings persistent throughout lifetime
+- Create script to automate testing
 
 ## Contributing
-Currently not open for contribution.
+When contributing to this repository, please first discuss the change you wish to make via <a href='https://github.com/K0p1-Git/AutoSorter/issues'>issue</a> or contact me via <a href='https://twitter.com/K0p1_'>twitter</a> before making a change.
+
+Code of conduct to be added soon. 
 
 ## License
 ```
