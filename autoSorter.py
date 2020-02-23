@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
-import os, time
+import os, shutil, time
 from os import path
+from pathlib import Path
 from signal import signal, SIGINT
 from sys import exit
 
 ## Directories are delclared here
-USER = os.environ.get('USERNAME')
-TARGET  = f'/{USER}/Downloads/' 
+USER = Path.home()
+TARGET  = path.join(USER, 'Downloads')
 DIRS    = {
-    'PICTURES'  :f'/{USER}/Pictures',
-    'DOCUMENTS' :f'/{USER}/Documents',
-    'VIDEOS'    :f'/{USER}/Videos'
+    'PICTURES'  : path.join(USER, 'Pictures'),
+    'DOCUMENTS' : path.join(USER, 'Documents'),
+    'VIDEOS'    : path.join(USER, 'Videos')
 }
 ## Extensions are declared here or be loaded via text file. 
 EXT = {
@@ -61,8 +62,10 @@ def moveFile(files, extensions):
     for f in files:
         for e in extensions:
             if(f.lower().endswith(e)):
-                print(f'\nFile: {TARGET+f} end with {e} and should be stored in {DIRS[EXT[e]]}')
-                os.system(f'mv {TARGET+f} {DIRS[EXT[e]]}')
+                target_file = path.join(TARGET, f)
+                dest = DIRS[EXT[e]]
+                print(f'\nFile: {target_file} ends with {e} and should be stored in {dest}')
+                shutil.move(target_file, dest)
                 print('File moved')
 
 ## The signalHandler function is used to terminate the script when ctrl + C is detected
