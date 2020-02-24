@@ -62,7 +62,7 @@ $ chmod +x autoSorter.py
 - Create script to automate testing
 
 ## Contributing
-When contributing to this repository, please first discuss the change you wish to make via <a href='https://github.com/K0p1-Git/AutoSorter/issues'>issue</a> or contact me via <a href='https://twitter.com/K0p1_'>twitter</a> before making a change.
+When contributing to this repository, please first discuss the change you wish to make via <a href='https://github.com/K0p1-Git/AutoSorter/issues'>issue</a>, create a pull request or contact me via <a href='https://twitter.com/K0p1_'>twitter</a> before making a change.
 
 Code of conduct to be added soon. 
 
