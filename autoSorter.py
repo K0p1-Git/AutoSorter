@@ -64,9 +64,15 @@ def moveFile(files, extensions):
             if(f.lower().endswith(e)):
                 target_file = path.join(TARGET, f)
                 dest = DIRS[EXT[e]]
-                print(f'\nFile: {target_file} ends with {e} and should be stored in {dest}')
-                shutil.move(target_file, dest)
-                print('File moved')
+                ## Check to see whether file exist in the destination directory
+                if (path.exists(path.join(dest, f))):
+                    print(f'\nFile {target_file} already exist in {dest}, appending datetime.') 
+                    timestr = time.strftime("%Y%m%d-%H%M%S-",time.localtime())
+                    os.rename(target_file,path.join(TARGET, timestr+f))
+                else: 
+                    print(f'\nFile: {target_file} ends with {e} and should be stored in {dest}')
+                    shutil.move(target_file, dest)
+                    print('File moved')
 
 ## The signalHandler function is used to terminate the script when ctrl + C is detected
 
@@ -83,7 +89,7 @@ def welcome():
   / ____ \ |_| | || (_) |  ____) | (_) | |  | ||  __/ |   
  /_/    \_\__,_|\__\___/  |_____/ \___/|_|   \__\___|_|   
                                                           
-    Version 1.2.0 -  Twitter @ K0p1_
+    Version 1.2.1 -  Twitter @ K0p1_
 
             ''')
 
@@ -92,7 +98,6 @@ def welcome():
 def main():
     signal(SIGINT, signalHandler)
     welcome()
-    #print(EXT)  DEBUG
     initialize()
     checkExist()
 
