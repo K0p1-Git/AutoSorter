@@ -99,7 +99,7 @@ def welcome():
   / ____ \ |_| | || (_) |  ____) | (_) | |  | ||  __/ |   
  /_/    \_\__,_|\__\___/  |_____/ \___/|_|   \__\___|_|   
                                                           
-''' + COLOR_RED + ' Version ' + COLOR_YELLOW + '1.2.1' + COLOR_RED + '  Twitter ' + COLOR_YELLOW + '@ K0p1_')
+''' + COLOR_RED + ' Version ' + COLOR_YELLOW + '1.3.0' + COLOR_RED + '  Twitter ' + COLOR_YELLOW + '@ K0p1_')
 
 ## Main function starts here
 
