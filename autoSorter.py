@@ -4,6 +4,15 @@ from os import path
 from pathlib import Path
 from signal import signal, SIGINT
 from sys import exit
+from colorama import init, Fore, Back, Style
+init(autoreset=True) ## Autorest color back to default after each print used with colorama
+
+## Preset Colors
+COLOR_END       = Style.RESET_ALL               ## RESET/END
+COLOR_GREEN     = Fore.GREEN + Style.BRIGHT     ## SUCCESS
+COLOR_RED       = Fore.RED + Style.BRIGHT       ## ERROR
+COLOR_YELLOW    = Fore.YELLOW + Style.BRIGHT    ## INFO
+COLOR_CYAN      = Fore.CYAN + Style.BRIGHT
 
 ## Directories are delclared here
 USER = Path.home()
@@ -34,25 +43,26 @@ def initialize():
     print('\nInitializing, Checking if directories exist.')
     for DIR in DIRS:
         EXIST = path.exists(DIRS[DIR])
-        print(DIRS[DIR] + '\t:\t' + str(EXIST))
+        if EXIST:
+            print(DIRS[DIR] + '\t:\t' + COLOR_GREEN + str(EXIST))
         if not EXIST:
-            print('\nError\t:\tPlease ensure that specified directories exists.')
+            print(COLOR_YELLOW + DIRS[DIR] + '\t: ' + COLOR_RED + str(EXIST))
+            print(COLOR_RED + '\nError\t: ' + COLOR_END + 'Please ensure that specified directories exists.')
             exit(-1)
-    print('\nDirectories loaded ...')
+    print(COLOR_YELLOW + '\nINFO\t: ' + COLOR_END + 'Directories loaded ...')
 
 ## The checkExist() function is used to poll the target directory for new files being added.
 ## Once a file has been detected, it will move it to the pre-defined directories.
 
 def checkExist():
     before = []
-    print(f'\n¯\(◉‿◉)/¯ Watching {TARGET} for change ¯\(◉‿◉)/¯')
+    print('\n' + COLOR_YELLOW + f'¯\(◉‿◉)/¯ Watching {TARGET} for change ¯\(◉‿◉)/¯')
     while True:
         time.sleep(TIME)
         after = dict ([(f, None) for f in os.listdir (TARGET)])
         added = [f for f in after if not f in before]
-        #removed = [f for f in before if not f in after]
         if added:
-            print(f'\nNew file(s) detected : {added}')
+            print(COLOR_YELLOW + '\nNew file(s) detected :' + COLOR_CYAN + f'{added}')
             moveFile(added, EXT)
         before = after        
 
@@ -66,22 +76,22 @@ def moveFile(files, extensions):
                 dest = DIRS[EXT[e]]
                 ## Check to see whether file exist in the destination directory
                 if (path.exists(path.join(dest, f))):
-                    print(f'\nFile {target_file} already exist in {dest}, appending datetime.') 
+                    print(COLOR_YELLOW + '\nINFO : ' + COLOR_END + f'{target_file} already exist in {dest}, appending datetime.') 
                     timestr = time.strftime("%Y%m%d-%H%M%S-",time.localtime())
                     os.rename(target_file,path.join(TARGET, timestr+f))
                 else: 
-                    print(f'\nFile: {target_file} ends with {e} and should be stored in {dest}')
+                    print(COLOR_YELLOW + '\nINFO : ' + COLOR_END +f'{target_file} ends with {e} and should be stored in {dest}')
                     shutil.move(target_file, dest)
-                    print('File moved')
+                    print(COLOR_YELLOW + 'INFO : ' + COLOR_END + COLOR_GREEN + 'File moved Successfully!')
 
 ## The signalHandler function is used to terminate the script when ctrl + C is detected
 
 def signalHandler(sig, frame):
-    print('\nAuto Sorter script terminated. Farewell!')
+    print(COLOR_GREEN + '\nAuto Sorter script terminated. Farewell!')
     exit(0)
 
 def welcome():
-    print('''
+    print(COLOR_CYAN + '''
                 _           _____            _            
      /\        | |         / ____|          | |           
     /  \  _   _| |_ ___   | (___   ___  _ __| |_ ___ _ __ 
@@ -89,9 +99,7 @@ def welcome():
   / ____ \ |_| | || (_) |  ____) | (_) | |  | ||  __/ |   
  /_/    \_\__,_|\__\___/  |_____/ \___/|_|   \__\___|_|   
                                                           
-    Version 1.2.1 -  Twitter @ K0p1_
-
-            ''')
+''' + COLOR_RED + ' Version ' + COLOR_YELLOW + '1.2.1' + COLOR_RED + '  Twitter ' + COLOR_YELLOW + '@ K0p1_')
 
 ## Main function starts here
 
