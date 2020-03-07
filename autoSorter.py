@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import os, shutil, time
+import os, shutil, time, sys
 from os import path
 from pathlib import Path
 from signal import signal, SIGINT
@@ -14,6 +14,9 @@ COLOR_RED       = Fore.RED + Style.BRIGHT       ## ERROR
 COLOR_YELLOW    = Fore.YELLOW + Style.BRIGHT    ## INFO
 COLOR_CYAN      = Fore.CYAN + Style.BRIGHT
 
+## Version number
+VERSION = '1.4.0'
+
 ## Directories are delclared here
 USER = Path.home()
 TARGET  = path.join(USER, 'Downloads')
@@ -22,6 +25,7 @@ DIRS    = {
     'DOCUMENTS' : path.join(USER, 'Documents'),
     'VIDEOS'    : path.join(USER, 'Videos')
 }
+
 ## Extensions are declared here or be loaded via text file. 
 EXT = {
     'jpeg':'PICTURES',
@@ -99,12 +103,37 @@ def welcome():
   / ____ \ |_| | || (_) |  ____) | (_) | |  | ||  __/ |   
  /_/    \_\__,_|\__\___/  |_____/ \___/|_|   \__\___|_|   
                                                           
-''' + COLOR_RED + ' Version ' + COLOR_YELLOW + '1.3.0' + COLOR_RED + '  Twitter ' + COLOR_YELLOW + '@ K0p1_')
+''' + COLOR_RED + ' Version ' + COLOR_YELLOW + VERSION + COLOR_RED + '  Twitter ' + COLOR_YELLOW + '@ K0p1_')
+
+## SwitchHandler() function is used to seek arguments entered by the user and return
+## the appropriate values i.e. displaying help messages ... etc 
+## WIP: leaving this here for future developments/implementation  
+
+def switchHandler():
+    flag = {
+        '--version' : f'AutoSorter version {VERSION}. Fine me at:\n\nGithub: @K0p1-Git\nTwitter: @K0p1_\n',
+        '--help'    : '''This is a sample test help message.
+AutoSorter does not require any arugments to run.\n''',
+        '-h'        : '''This is a sample test help message.
+AutoSorter does not require any arugments to run.\n'''
+    }
+    if (len(sys.argv) > 1):
+        for arg in sys.argv[1:]:
+            try:
+                if ((arg == '--help') or (arg == '-h') or (arg == '--version')):
+                    print(COLOR_CYAN + flag[arg])
+                    exit(0)
+                print(flag[arg])
+            except KeyError:
+                print(COLOR_RED + f'Unknow {arg} argument found...')
+                print(COLOR_RED + f'Usage: {sys.argv[0]} --help to display help message\n') 
+                exit(-1)
 
 ## Main function starts here
 
 def main():
     signal(SIGINT, signalHandler)
+    switchHandler()
     welcome()
     initialize()
     checkExist()
