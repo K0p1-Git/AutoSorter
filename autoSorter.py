@@ -32,10 +32,12 @@ EXT = {
     'png':'PICTURES'
 }
 
+## Import (extension, Category, location) from text file
 with open("extensions.txt") as f:
     for line in f:
-       (key, val) = line.split('\t')
-       EXT[key] = val.strip()
+        (ext, cat, loc) = line.split('\t',2)
+        EXT[ext] = cat.strip()
+        DIRS[cat] = path.join(USER, loc.strip())
 
 ## Set polling rate in seconds
 TIME = 0.5 
@@ -136,6 +138,7 @@ def main():
     switchHandler()
     welcome()
     initialize()
+    print(DIRS)
     checkExist()
 
 if __name__ == '__main__':
