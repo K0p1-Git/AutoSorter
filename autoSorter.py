@@ -40,7 +40,50 @@ with open("extensions.txt") as f:
         DIRS[cat] = path.join(USER, loc.strip())
 
 ## Set polling rate in seconds
-TIME = 0.5 
+TIME = 0.5
+def setPoll(index):
+    global TIME
+    if (sys.argv[index] == '--poll'):
+        try:
+            TIME = float(sys.argv[index+1])
+        except ValueError as verr:
+            print(COLOR_RED + f'Usage\t: {sys.argv[0]} (Float in second i.e 0.5)\n')
+            exit(-1)
+        except Exception as ex:
+            print(COLOR_RED + f'Error\t: {sys.argv[0]} (Float in second i.e 0.5)\n')
+            exit(-1)
+
+## SwitchHandler() function is used to seek arguments entered by the user and return
+## the appropriate values i.e. displaying help messages ... etc 
+## WIP: leaving this here for future developments/implementation  
+
+def switchHandler():
+    argc = 0
+    flag = {
+        '--version' : f'AutoSorter version {VERSION}. Fine me at:\n\nGithub: @K0p1-Git\nTwitter: @K0p1_\n',
+        '--help'    : 'This is a sample test help message. AutoSorter does not require any arugments to run.\n',
+        '-h'        : 'This is a sample test help message. AutoSorter does not require any arugments to run.\n',
+        '--poll'    : 'Set polling time. Default set at 0.5 poll per second.\n' 
+    }
+    if (len(sys.argv) > 1):
+        for arg in sys.argv[1:]:
+            try:
+                argc = argc + 1
+                if ((arg == '--help') or (arg == '-h') or (arg == '--version')):
+                    print(COLOR_CYAN + flag[arg])
+                    for f in flag:
+                        if (f != '--version'):
+                            print(f +'\t'+ flag[f])
+                    exit(0)
+                elif (arg == '--poll'):
+                    setPoll(argc)
+            except KeyError:
+                print(COLOR_RED + f'Unknow {arg} argument found...')
+                print(COLOR_RED + f'Usage: {sys.argv[0]} --help to display help message\n') 
+                exit(-1)
+            except Exception as ex:
+                print(COLOR_RED + f'\nError\t: parsing of arugments failed)')
+                exit(-1)
 
 ## The initialize() function is used to check whether declared directories
 ## and its path exist within the system else terminate the program.
@@ -107,38 +150,14 @@ def welcome():
                                                           
 ''' + COLOR_RED + ' Version ' + COLOR_YELLOW + VERSION + COLOR_RED + '  Twitter ' + COLOR_YELLOW + '@ K0p1_')
 
-## SwitchHandler() function is used to seek arguments entered by the user and return
-## the appropriate values i.e. displaying help messages ... etc 
-## WIP: leaving this here for future developments/implementation  
-
-def switchHandler():
-    flag = {
-        '--version' : f'AutoSorter version {VERSION}. Fine me at:\n\nGithub: @K0p1-Git\nTwitter: @K0p1_\n',
-        '--help'    : '''This is a sample test help message.
-AutoSorter does not require any arugments to run.\n''',
-        '-h'        : '''This is a sample test help message.
-AutoSorter does not require any arugments to run.\n'''
-    }
-    if (len(sys.argv) > 1):
-        for arg in sys.argv[1:]:
-            try:
-                if ((arg == '--help') or (arg == '-h') or (arg == '--version')):
-                    print(COLOR_CYAN + flag[arg])
-                    exit(0)
-                print(flag[arg])
-            except KeyError:
-                print(COLOR_RED + f'Unknow {arg} argument found...')
-                print(COLOR_RED + f'Usage: {sys.argv[0]} --help to display help message\n') 
-                exit(-1)
-
 ## Main function starts here
 
 def main():
     signal(SIGINT, signalHandler)
     switchHandler()
     welcome()
+    print(COLOR_YELLOW + f'\nINFO: Polling time set at poll per {TIME} second(s).\n') ## Debug
     initialize()
-    print(DIRS)
     checkExist()
 
 if __name__ == '__main__':
