@@ -1,10 +1,10 @@
-# Auto Sorter v1.3.0
+# Auto Sorter v1.4.0
 <p align=left>
-<a target="_blank" href="https://github.com/K0p1-Git/autoSorter/"><img alt="docker image" src="https://img.shields.io/badge/Version-_1.3.0-blue.svg"></a>
+<a target="_blank" href="https://github.com/K0p1-Git/autoSorter/"><img alt="docker image" src="https://img.shields.io/badge/Version-_1.4.0-blue.svg"></a>
 <a target="_blank" href="https://www.python.org/downloads/" title="Python version"><img src="https://img.shields.io/badge/python-%3E=_3.6-green.svg"></a>
 <a target="_blank" href="https://github.com/K0p1-Git/AutoSorter/blob/master/LICENSE.md" title="License"><img alt="GitHub" src="https://img.shields.io/badge/license-MIT-black"></a>
 <a target="_blank" href="https://twitter.com/intent/tweet?text=Improve%20Productivity%20with%20Auto%20Sorter%20&url=https://github.com/K0p1-Git/autoSorter/&&hashtags=Productivity,%20Python,%20Script" title="Share on Tweeter"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"></a>
-</p>         
+</p>
 
 ```
                _           _____            _            
@@ -14,30 +14,28 @@
  / ____ \ |_| | || (_) |  ____) | (_) | |  | ||  __/ |   
 /_/    \_\__,_|\__\___/  |_____/ \___/|_|   \__\___|_|   
   
-     Version 1.3.0  -  Twitter @ K0p1_
+     Version 1.4.0  -  Twitter @ K0p1_
 ```                                                          
 Auto Sorter is a automatic file sorter, relocate files to where they rightfully belong, based on file extensions.
 - Customizable storage location
-- <a href='https://github.com/K0p1-Git/AutoSorter/blob/master/extensions.txt'>Customizable extensions mapping</a>
+- <a href='./extensions.txt'>Customizable extensions mapping</a>
 - Adjustable Polling Rate
 - Easy run and forget quality of life script 
 
 __Note: This is a work in progress, everything is subjected to change. More in-depth tutorial coming soon!__
 
-## Change Log v 1.3.0
-- Added UI Colors
-- Fixed Bugs
-
-## Change Log v 1.2.1
-- Fixed Bugs
-
-## Change Log v 1.2.0
-- Improved cross-platform compatibility 
-
-## Change Log v 1.1.0
-- Change the way it detects user's home directory
-- Added Welcome ASCII art
-- Cleaned up certain debug lines
+## Change Log v 1.4.0
+- Added arguments functions
+  - **-h/--help** : For help
+  - **--poll**    : For custom poll rate
+  - **--version** : For version details
+  - **--import**  : For custom import of extension / directories file
+ - Re-worked <a href='./extensions.txt'>extensions.txt</a>
+```
+ Format:
+  [EXTENSION]  [CATEGORY]  [LOCATION]
+```
+For previous update : <a href=./HISTORY.md>HISTORY.md</a> 
 
 ## Prerequisite 
 
@@ -74,6 +72,5 @@ When contributing to this repository, please first discuss the change you wish t
 Code of conduct to be added soon. 
 
 ## License
-```
-LICENSE.md
-```
+<a href='./LICENSE.md'>LICENSE.md</a>
+

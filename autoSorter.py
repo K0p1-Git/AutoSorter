@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import os, shutil, time
+import os, shutil, time, sys
 from os import path
 from pathlib import Path
 from signal import signal, SIGINT
@@ -14,6 +14,9 @@ COLOR_RED       = Fore.RED + Style.BRIGHT       ## ERROR
 COLOR_YELLOW    = Fore.YELLOW + Style.BRIGHT    ## INFO
 COLOR_CYAN      = Fore.CYAN + Style.BRIGHT
 
+## Version number
+VERSION = '1.4.0'
+
 ## Directories are delclared here
 USER = Path.home()
 TARGET  = path.join(USER, 'Downloads')
@@ -22,19 +25,87 @@ DIRS    = {
     'DOCUMENTS' : path.join(USER, 'Documents'),
     'VIDEOS'    : path.join(USER, 'Videos')
 }
+
 ## Extensions are declared here or be loaded via text file. 
 EXT = {
     'jpeg':'PICTURES',
     'png':'PICTURES'
 }
 
-with open("extensions.txt") as f:
-    for line in f:
-       (key, val) = line.split('\t')
-       EXT[key] = val.strip()
-
+## Import (extension, Category, location) from text file
+def userImport(index):
+    if (sys.argv[index] == '--import'):
+        try:
+            FILE = str(sys.argv[index+1])
+            if FILE:
+                with open(FILE) as f:
+                    for line in f:
+                        (ext, cat, loc) = line.split('\t',2)
+                        EXT[ext] = cat.strip()
+                        DIRS[cat] = path.join(USER, loc.strip())
+            elif not FILE:
+                with open("extensions.txt") as f:
+                    for line in f:
+                        (ext, cat, loc) = line.split('\t',2)
+                        EXT[ext] = cat.strip()
+                        DIRS[cat] = path.join(USER, loc.strip())
+        except FileNotFoundError:
+            print(COLOR_RED + f'Unkown file {sys.argv[index+1]} not found.') 
+            print(COLOR_RED + f'Usage\t: {sys.argv[0]} [FILE]\n')
+            exit(-1)
+        except Exception as ex:
+            print(COLOR_RED + f'Error\t: {sys.argv[0]} [FILE]\n')
+            exit(-1)
+            
 ## Set polling rate in seconds
-TIME = 0.5 
+TIME = 0.5
+def setPoll(index):
+    global TIME
+    if (sys.argv[index] == '--poll'):
+        try:
+            TIME = float(sys.argv[index+1])
+        except ValueError as verr:
+            print(COLOR_RED + f'Usage\t: {sys.argv[0]} (Float in second i.e 0.5)\n')
+            exit(-1)
+        except Exception as ex:
+            print(COLOR_RED + f'Error\t: {sys.argv[0]} (Float in second i.e 0.5)\n')
+            exit(-1)
+
+## SwitchHandler() function is used to seek arguments entered by the user and return
+## the appropriate values i.e. displaying help messages ... etc 
+## WIP: leaving this here for future developments/implementation  
+
+def switchHandler():
+    flag = {
+        '--help'    : 'This is a sample test help message. AutoSorter does not require any arugments to run.\n',
+        '-h'        : 'This is a sample test help message. AutoSorter does not require any arugments to run.\n',
+        '--poll'    : 'Set polling time. Default set at 0.5 poll per second.\n',
+        '--import'  : 'User self defined file for extensions and directories. Default set: extensions.txt\n',
+        '--version' : f'AutoSorter version {VERSION}. Fine me at:\n\nGithub: @K0p1-Git\nTwitter: @K0p1_\n'
+    }
+    if (len(sys.argv) > 1):
+        for argc, arg in enumerate(sys.argv[1:], start=1):
+            try:
+                if ((arg == '--help') or (arg == '-h') or (arg == '--version')):
+                    print(COLOR_CYAN + flag[arg])
+                    for key, value in flag.items():
+                        print(f'{key:<13} {value}')
+                    exit(0)
+                elif (arg == '--poll'):
+                    setPoll(argc)
+                elif (arg == '--import'):
+                    userImport(argc)
+                else:
+                    print(COLOR_RED + f'Unknow {arg} argument found...')
+                    print(COLOR_RED + f'Usage: {sys.argv[0]} --help to display help message\n') 
+                    exit(-1)
+            except KeyError:
+                print(COLOR_RED + f'Unknow {arg} argument found...')
+                print(COLOR_RED + f'Usage: {sys.argv[0]} --help to display help message\n') 
+                exit(-1)
+            except Exception as ex:
+                print(COLOR_RED + f'\nError\t: parsing of arugments failed)')
+                exit(-1)
 
 ## The initialize() function is used to check whether declared directories
 ## and its path exist within the system else terminate the program.
@@ -87,7 +158,7 @@ def moveFile(files, extensions):
 ## The signalHandler function is used to terminate the script when ctrl + C is detected
 
 def signalHandler(sig, frame):
-    print(COLOR_GREEN + '\nAuto Sorter script terminated. Farewell!')
+    print(COLOR_GREEN + '\n\nAuto Sorter script terminated. Farewell!')
     exit(0)
 
 def welcome():
@@ -99,13 +170,15 @@ def welcome():
   / ____ \ |_| | || (_) |  ____) | (_) | |  | ||  __/ |   
  /_/    \_\__,_|\__\___/  |_____/ \___/|_|   \__\___|_|   
                                                           
-''' + COLOR_RED + ' Version ' + COLOR_YELLOW + '1.3.0' + COLOR_RED + '  Twitter ' + COLOR_YELLOW + '@ K0p1_')
+''' + COLOR_RED + ' Version ' + COLOR_YELLOW + VERSION + COLOR_RED + '  Twitter ' + COLOR_YELLOW + '@ K0p1_')
 
 ## Main function starts here
 
 def main():
     signal(SIGINT, signalHandler)
+    switchHandler()
     welcome()
+    print(COLOR_YELLOW + f'\nINFO: Polling time set at poll per {TIME} second(s).\n') ## Debug
     initialize()
     checkExist()
 

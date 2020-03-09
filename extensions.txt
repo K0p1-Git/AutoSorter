@@ -1,30 +1,31 @@
-jpg	PICTURES
-ai	PICTURES
-bmp	PICTURES
-gif	PICTURES
-ico	PICTURES
-jpeg	PICTURES
-png 	PICTURES
-ps 	PICTURES
-psd 	PICTURES
-svg 	PICTURES
-tif	PICTURES
-tiff	PICTURES
-ods	DOCUMENTS
-xlr	DOCUMENTS
-xls	DOCUMENTS
-xlsx	DOCUMENTS
-doc	DOCUMENTS
-docx	DOCUMENTS
-pdf	DOCUMENTS
-rtf	DOCUMENTS
-tex	DOCUMENTS
-txt	DOCUMENTS
-wks	DOCUMENTS
-wps	DOCUMENTS
-wpd	DOCUMENTS
-key	DOCUMENTS
-odp	DOCUMENTS
-pps	DOCUMENTS
-ppt	DOCUMENTS
-pptx	DOCUMENTS
+wav	VIDEOS		Videos
+jpg	PICTURES	Pictures
+ai	PICTURES	Pictures	
+bmp	PICTURES	Pictures
+gif	PICTURES	Pictures
+ico	PICTURES	Pictures
+jpeg	PICTURES	Pictures
+png 	PICTURES	Pictures
+ps 	PICTURES	Pictures
+psd 	PICTURES	Pictures
+svg 	PICTURES	Pictures
+tif	PICTURES	Pictures
+tiff	PICTURES	Pictures
+ods	DOCUMENTS	Documents
+xlr	DOCUMENTS	Documents
+xls	DOCUMENTS	Documents
+xlsx	DOCUMENTS	Documents
+doc	DOCUMENTS	Documents
+docx	DOCUMENTS	Documents
+pdf	DOCUMENTS	Documents
+rtf	DOCUMENTS	Documents
+tex	DOCUMENTS	Documents
+txt	DOCUMENTS	Documents
+wks	DOCUMENTS	Documents
+wps	DOCUMENTS	Documents
+wpd	DOCUMENTS	Documents
+key	DOCUMENTS	Documents
+odp	DOCUMENTS	Documents
+pps	DOCUMENTS	Documents
+ppt	DOCUMENTS	Documents
+pptx	DOCUMENTS	Documents
