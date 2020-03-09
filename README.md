@@ -4,7 +4,7 @@
 <a target="_blank" href="https://www.python.org/downloads/" title="Python version"><img src="https://img.shields.io/badge/python-%3E=_3.6-green.svg"></a>
 <a target="_blank" href="https://github.com/K0p1-Git/AutoSorter/blob/master/LICENSE.md" title="License"><img alt="GitHub" src="https://img.shields.io/badge/license-MIT-black"></a>
 <a target="_blank" href="https://twitter.com/intent/tweet?text=Improve%20Productivity%20with%20Auto%20Sorter%20&url=https://github.com/K0p1-Git/autoSorter/&&hashtags=Productivity,%20Python,%20Script" title="Share on Tweeter"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"></a>
-</p>         
+</p>
 
 ```
                _           _____            _            
@@ -30,11 +30,13 @@ __Note: This is a work in progress, everything is subjected to change. More in-d
   - **--poll**    : For custom poll rate
   - **--version** : For version details
   - **--import**  : For custom import of extension / directories file
- - Re-worked extensions.txt
- ```
+ - Re-worked <a href='./extensions.txt'>extensions.txt</a>
+```
  Format:
   [EXTENSION]  [CATEGORY]  [LOCATION]
- ```
+```
+For previous update : <a href=./HISTORY.md>HISTORY.md</a> 
+
 ## Prerequisite 
 
 [Python 3.6 or above ](https://www.python.org/download/releases/3.0/) is required to run the script.
@@ -70,6 +72,5 @@ When contributing to this repository, please first discuss the change you wish t
 Code of conduct to be added soon. 
 
 ## License
-```
 <a href='./LICENSE.md'>LICENSE.md</a>
-```
+
