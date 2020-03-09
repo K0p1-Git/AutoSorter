@@ -58,11 +58,6 @@ $ cd AutoSorter
 $ chmod +x autoSorter.py
 ```
 ## To-Do(s)
-- Add control flag to make importing extensions file easier
-- Add control flag to make it possible to import directories
-- Add --help -h flag for simple how-to messages
-- Add control flag to make it possible to initialize polling rate
-- Change extension/directories file type to JSON format
 - Make settings persistent throughout lifetime
 - Create script to automate testing
 
