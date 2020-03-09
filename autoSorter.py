@@ -58,7 +58,6 @@ def setPoll(index):
 ## WIP: leaving this here for future developments/implementation  
 
 def switchHandler():
-    argc = 0
     flag = {
         '--version' : f'AutoSorter version {VERSION}. Fine me at:\n\nGithub: @K0p1-Git\nTwitter: @K0p1_\n',
         '--help'    : 'This is a sample test help message. AutoSorter does not require any arugments to run.\n',
@@ -66,9 +65,8 @@ def switchHandler():
         '--poll'    : 'Set polling time. Default set at 0.5 poll per second.\n' 
     }
     if (len(sys.argv) > 1):
-        for arg in sys.argv[1:]:
+        for argc, arg in enumerate(sys.argv[1:], start=1):
             try:
-                argc = argc + 1
                 if ((arg == '--help') or (arg == '-h') or (arg == '--version')):
                     print(COLOR_CYAN + flag[arg])
                     for f in flag:
