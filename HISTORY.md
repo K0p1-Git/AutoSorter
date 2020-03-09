@@ -6,7 +6,7 @@
   - **--poll**    : For custom poll rate
   - **--version** : For version details
   - **--import**  : For custom import of extension / directories file
-  - Re-worked <a href='./extensions.txt'>extensions.txt</a>
+- Re-worked <a href='./extensions.txt'>extensions.txt</a>
 ```
  Format:
   [EXTENSION]  [CATEGORY]  [LOCATION]
