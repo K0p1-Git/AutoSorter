@@ -33,12 +33,30 @@ EXT = {
 }
 
 ## Import (extension, Category, location) from text file
-with open("extensions.txt") as f:
-    for line in f:
-        (ext, cat, loc) = line.split('\t',2)
-        EXT[ext] = cat.strip()
-        DIRS[cat] = path.join(USER, loc.strip())
-
+def userImport(index):
+    if (sys.argv[index] == '--import'):
+        try:
+            FILE = str(sys.argv[index+1])
+            if FILE:
+                with open(FILE) as f:
+                    for line in f:
+                        (ext, cat, loc) = line.split('\t',2)
+                        EXT[ext] = cat.strip()
+                        DIRS[cat] = path.join(USER, loc.strip())
+            elif not FILE:
+                with open("extensions.txt") as f:
+                    for line in f:
+                        (ext, cat, loc) = line.split('\t',2)
+                        EXT[ext] = cat.strip()
+                        DIRS[cat] = path.join(USER, loc.strip())
+        except FileNotFoundError:
+            print(COLOR_RED + f'Unkown file {sys.argv[index+1]} not found.') 
+            print(COLOR_RED + f'Usage\t: {sys.argv[0]} [FILE]\n')
+            exit(-1)
+        except Exception as ex:
+            print(COLOR_RED + f'Error\t: {sys.argv[0]} [FILE]\n')
+            exit(-1)
+            
 ## Set polling rate in seconds
 TIME = 0.5
 def setPoll(index):
@@ -59,22 +77,28 @@ def setPoll(index):
 
 def switchHandler():
     flag = {
-        '--version' : f'AutoSorter version {VERSION}. Fine me at:\n\nGithub: @K0p1-Git\nTwitter: @K0p1_\n',
         '--help'    : 'This is a sample test help message. AutoSorter does not require any arugments to run.\n',
         '-h'        : 'This is a sample test help message. AutoSorter does not require any arugments to run.\n',
-        '--poll'    : 'Set polling time. Default set at 0.5 poll per second.\n' 
+        '--poll'    : 'Set polling time. Default set at 0.5 poll per second.\n',
+        '--import'  : 'User self defined file for extensions and directories. Default set: extensions.txt\n',
+        '--version' : f'AutoSorter version {VERSION}. Fine me at:\n\nGithub: @K0p1-Git\nTwitter: @K0p1_\n'
     }
     if (len(sys.argv) > 1):
         for argc, arg in enumerate(sys.argv[1:], start=1):
             try:
                 if ((arg == '--help') or (arg == '-h') or (arg == '--version')):
                     print(COLOR_CYAN + flag[arg])
-                    for f in flag:
-                        if (f != '--version'):
-                            print(f +'\t'+ flag[f])
+                    for key, value in flag.items():
+                        print(f'{key:<13} {value}')
                     exit(0)
                 elif (arg == '--poll'):
                     setPoll(argc)
+                elif (arg == '--import'):
+                    userImport(argc)
+                else:
+                    print(COLOR_RED + f'Unknow {arg} argument found...')
+                    print(COLOR_RED + f'Usage: {sys.argv[0]} --help to display help message\n') 
+                    exit(-1)
             except KeyError:
                 print(COLOR_RED + f'Unknow {arg} argument found...')
                 print(COLOR_RED + f'Usage: {sys.argv[0]} --help to display help message\n') 
@@ -134,7 +158,7 @@ def moveFile(files, extensions):
 ## The signalHandler function is used to terminate the script when ctrl + C is detected
 
 def signalHandler(sig, frame):
-    print(COLOR_GREEN + '\nAuto Sorter script terminated. Farewell!')
+    print(COLOR_GREEN + '\n\nAuto Sorter script terminated. Farewell!')
     exit(0)
 
 def welcome():
