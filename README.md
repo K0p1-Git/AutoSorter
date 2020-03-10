@@ -33,6 +33,10 @@ Auto Sorter is a automatic file sorter, relocate files to where they rightfully 
 __Note: This is a work in progress, everything is subjected to change. More in-depth tutorial coming soon!__
 
 ## Change Log v 1.4.1
+
+- Minor Bug Fix
+
+## Change Log v 1.4.0
 - Added arguments functions
   - **-h/--help** : For help
   - **--poll**    : For custom poll rate
