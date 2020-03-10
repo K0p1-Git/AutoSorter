@@ -15,7 +15,7 @@ COLOR_YELLOW    = Fore.YELLOW + Style.BRIGHT    ## INFO
 COLOR_CYAN      = Fore.CYAN + Style.BRIGHT
 
 ## Version number
-VERSION = '1.4.0'
+VERSION = '1.4.1'
 
 ## Directories are delclared here
 USER = Path.home()
