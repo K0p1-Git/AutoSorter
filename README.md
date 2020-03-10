@@ -6,16 +6,24 @@
 <a target="_blank" href="https://twitter.com/intent/tweet?text=Improve%20Productivity%20with%20Auto%20Sorter%20&url=https://github.com/K0p1-Git/autoSorter/&&hashtags=Productivity,%20Python,%20Script" title="Share on Tweeter"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"></a>
 </p>
 
+
 ```
-               _           _____            _            
-    /\        | |         / ____|          | |           
-   /  \  _   _| |_ ___   | (___   ___  _ __| |_ ___ _ __ 
-  / /\ \| | | | __/ _ \   \___ \ / _ \| '__| __/ _ \ '__|
- / ____ \ |_| | || (_) |  ____) | (_) | |  | ||  __/ |   
-/_/    \_\__,_|\__\___/  |_____/ \___/|_|   \__\___|_|   
-  
-     Version 1.4.1  -  Twitter @ K0p1_
-```                                                          
+                                           _           _____            _            
+                                /\        | |         / ____|          | |           
+                               /  \  _   _| |_ ___   | (___   ___  _ __| |_ ___ _ __ 
+                              / /\ \| | | | __/ _ \   \___ \ / _ \| '__| __/ _ \ '__|
+                             / ____ \ |_| | || (_) |  ____) | (_) | |  | ||  __/ |   
+                            /_/    \_\__,_|\__\___/  |_____/ \___/|_|   \__\___|_|   
+
+                                      Version 1.4.1  -  Twitter @ K0p1_
+```
+
+</p>
+<p align="center">
+<img src="./autoSorter-demo.gif"/>
+</p>
+
+
 Auto Sorter is a automatic file sorter, relocate files to where they rightfully belong, based on file extensions.
 - Customizable storage location
 - <a href='./extensions.txt'>Customizable extensions mapping</a>
@@ -32,7 +40,7 @@ __Note: This is a work in progress, everything is subjected to change. More in-d
   - **--import**  : For custom import of extension / directories file
  - Re-worked <a href='./extensions.txt'>extensions.txt</a>
 ```
- Format:
+ Format:  
   [EXTENSION]  [CATEGORY]  [LOCATION]
 ```
 For previous update : <a href=./HISTORY.md>HISTORY.md</a> 
