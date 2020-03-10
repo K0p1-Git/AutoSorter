@@ -1,6 +1,6 @@
-# Auto Sorter v1.4.0
+# Auto Sorter v1.4.1
 <p align=left>
-<a target="_blank" href="https://github.com/K0p1-Git/autoSorter/"><img alt="docker image" src="https://img.shields.io/badge/Version-_1.4.0-blue.svg"></a>
+<a target="_blank" href="https://github.com/K0p1-Git/autoSorter/"><img alt="docker image" src="https://img.shields.io/badge/Version-_1.4.1-blue.svg"></a>
 <a target="_blank" href="https://www.python.org/downloads/" title="Python version"><img src="https://img.shields.io/badge/python-%3E=_3.6-green.svg"></a>
 <a target="_blank" href="https://github.com/K0p1-Git/AutoSorter/blob/master/LICENSE.md" title="License"><img alt="GitHub" src="https://img.shields.io/badge/license-MIT-black"></a>
 <a target="_blank" href="https://twitter.com/intent/tweet?text=Improve%20Productivity%20with%20Auto%20Sorter%20&url=https://github.com/K0p1-Git/autoSorter/&&hashtags=Productivity,%20Python,%20Script" title="Share on Tweeter"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"></a>
@@ -14,7 +14,7 @@
  / ____ \ |_| | || (_) |  ____) | (_) | |  | ||  __/ |   
 /_/    \_\__,_|\__\___/  |_____/ \___/|_|   \__\___|_|   
   
-     Version 1.4.0  -  Twitter @ K0p1_
+     Version 1.4.1  -  Twitter @ K0p1_
 ```                                                          
 Auto Sorter is a automatic file sorter, relocate files to where they rightfully belong, based on file extensions.
 - Customizable storage location
@@ -24,7 +24,7 @@ Auto Sorter is a automatic file sorter, relocate files to where they rightfully 
 
 __Note: This is a work in progress, everything is subjected to change. More in-depth tutorial coming soon!__
 
-## Change Log v 1.4.0
+## Change Log v 1.4.1
 - Added arguments functions
   - **-h/--help** : For help
   - **--poll**    : For custom poll rate
