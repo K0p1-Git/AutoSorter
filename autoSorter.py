@@ -76,6 +76,7 @@ def setPoll(index):
 ## WIP: leaving this here for future developments/implementation  
 
 def switchHandler():
+    skip = False
     flag = {
         '--help'    : 'This is a sample test help message. AutoSorter does not require any arugments to run.\n',
         '-h'        : 'This is a sample test help message. AutoSorter does not require any arugments to run.\n',
@@ -86,15 +87,20 @@ def switchHandler():
     if (len(sys.argv) > 1):
         for argc, arg in enumerate(sys.argv[1:], start=1):
             try:
-                if ((arg == '--help') or (arg == '-h') or (arg == '--version')):
+                if skip:
+                    skip = False
+                    continue
+                elif ((arg == '--help') or (arg == '-h') or (arg == '--version')):
                     print(COLOR_CYAN + flag[arg])
                     for key, value in flag.items():
                         print(f'{key:<13} {value}')
                     exit(0)
                 elif (arg == '--poll'):
                     setPoll(argc)
+                    skip = True
                 elif (arg == '--import'):
                     userImport(argc)
+                    skip = True
                 else:
                     print(COLOR_RED + f'Unknow {arg} argument found...')
                     print(COLOR_RED + f'Usage: {sys.argv[0]} --help to display help message\n') 
